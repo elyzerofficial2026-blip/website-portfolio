@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Not Found | Elyzer Furagganan</title>
+<meta name="description" content="This page could not be found. Go back to the homepage or browse writing samples.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%230f5e59'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EEF%3C/text%3E%3C/svg%3E">
+<!-- Styles are inline on purpose: hosts can serve this page from any folder depth, where relative stylesheet paths would break. -->
+<style>
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #faf8f3; color: #1c1f1e; font: 400 17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; padding: 1.5rem; box-sizing: border-box; }
+  main { max-width: 34rem; }
+  .code { font: 600 0.8125rem/1 system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #0f5e59; }
+  h1 { font: 600 clamp(2rem, 1.5rem + 2vw, 2.75rem)/1.15 Georgia, "Times New Roman", serif; margin: 0.75rem 0 1rem; }
+  p { color: #545b58; margin: 0 0 1.5rem; }
+  .row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  a.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0.75rem 1.35rem; border-radius: 999px; border: 1.5px solid #0f5e59; font-weight: 600; text-decoration: none; }
+  a.primary { background: #0f5e59; color: #fff; }
+  a.primary:hover { background: #0a4642; }
+  a.secondary { color: #0f5e59; }
+  a.secondary:hover { background: #e6efec; }
+  a:focus-visible { outline: 3px solid #0f5e59; outline-offset: 3px; }
+</style>
+</head>
+<body>
+<main>
+  <p class="code">Error 404</p>
+  <h1>This page doesn't exist.</h1>
+  <p>The link may be old, or the address may have a typo. You can head back to the homepage, look through my writing samples, or send me your brief directly.</p>
+  <div class="row">
+    <a class="btn primary" data-path="" href="/">Go to the homepage</a>
+    <a class="btn secondary" data-path="#samples" href="/#samples">See writing samples</a>
+    <a class="btn secondary" data-path="#contact" href="/#contact">Send me your brief</a>
+  </div>
+</main>
+<script>
+  // Works on a root domain and on a GitHub Pages project site (username.github.io/repo/).
+  (function () {
+    var base = "/";
+    var parts = location.pathname.split("/").filter(Boolean);
+    if (/\.github\.io$/.test(location.hostname) && parts.length) base = "/" + parts[0] + "/";
+    var links = document.querySelectorAll("a[data-path]");
+    for (var i = 0; i < links.length; i++) links[i].href = base + links[i].getAttribute("data-path");
+  })();
+</script>
+</body>
+</html>
